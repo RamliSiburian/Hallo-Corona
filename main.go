@@ -27,7 +27,7 @@ func main() {
 	r := mux.NewRouter()
 
 	Routes.RouteInit(r.PathPrefix("/api/v1").Subrouter())
-	r.PathPrefix("/Uploads").Handler(http.StripPrefix("/Uploads", http.FileServer(http.Dir("./Uploads"))))
+	r.PathPrefix("/uploads").Handler(http.StripPrefix("/uploads/", http.FileServer(http.Dir("./uploads"))))
 
 	var port = os.Getenv("PORT")
 

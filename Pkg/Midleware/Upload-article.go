@@ -32,7 +32,7 @@ func ArticleImage(next http.HandlerFunc) http.HandlerFunc {
 			return
 		}
 
-		tempFile, err := ioutil.TempFile("Uploads", "image-*.png")
+		tempFile, err := ioutil.TempFile("uploads", "image-*.png")
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println("path upload error")
