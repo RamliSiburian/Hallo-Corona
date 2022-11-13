@@ -121,7 +121,7 @@ function Articles() {
                                 style={{ width: "20%" }}
                                 alt="empty"
                             />
-                            <div className="mt-3 text-danger fw-bold fs-3">No data product</div>
+                            <div className="mt-3 text-danger fw-bold fs-3">No Data Found</div>
                         </div>
                     )}
                 </div>
