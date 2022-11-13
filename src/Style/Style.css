@@ -1,0 +1,101 @@
+.link,
+.link:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+#sticky {
+    width: 100%;
+    height: 80px;
+    z-index: 99;
+    box-shadow: 1px 3px 5px black, 0px 5px 5px white;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#navbar .sticky .title {
+    font-size: 20px;
+    color: white;
+}
+
+#navbar .sticky .first {
+    background: blue;
+    color: white;
+    border: none;
+}
+
+#navbar .sticky .last {
+    background: transparent;
+    border: 1px solid blue;
+}
+
+#navbar .sticky .last:hover {
+    background: blue;
+}
+
+#navbar .sticky {
+    background: rgba(255, 0, 0, 1);
+    position: fixed;
+    top: 0px;
+    height: 50px;
+    transition: .5s;
+    /* line-height: 75px; */
+}
+
+#navbar .sticky Dropdown {
+    background: yellow;
+}
+
+.navbar Button {
+    min-width: 100px;
+}
+
+.Hero .link {
+    color: #FF6185;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.right .tips {
+    margin-right: 15px;
+    text-align: center;
+}
+
+.right img {
+    width: 75px;
+}
+
+/* Article */
+.card-article {
+    box-shadow: 1px 7px 5px grey;
+}
+
+.card-article:hover {
+    box-shadow: 2px 5px 5px #7DE5ED;
+}
+
+
+/* Profile style */
+.profile .detail p {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -5px;
+}
+
+.profile .detail span {
+    font-size: 10px;
+    display: block;
+    color: grey;
+}
+
+.profile .profileDetail img {
+    max-width: 200px;
+    height: 200px;
+}
