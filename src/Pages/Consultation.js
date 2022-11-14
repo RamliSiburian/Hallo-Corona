@@ -46,7 +46,7 @@ function Consultation() {
                 description: form?.description,
             }
 
-            const response = await API.post("/Consult", Datas, {
+            const response = await API.post("/Consult", form, {
                 headers: {
                     Authorization: `Bearer ${localStorage.token}`,
                 },

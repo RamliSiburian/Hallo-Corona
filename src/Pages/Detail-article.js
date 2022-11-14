@@ -18,7 +18,7 @@ function DetailArticle() {
                 <div className="Detail-artikel w-75 ">
                     <div className="head">
                         <p className="fs-3 fw-bold">{detailArticle?.title}</p>
-                        <p className="fs-2">{detailArticle?.creat_at}</p>
+                        <p className="fs-2">{detailArticle?.created_at}</p>
                         {/* <p className="fs-6">Author : <span style={{ color: "#ff6185", fontWeight: "bold" }}>{detailArticle?.title}</span> </p> */}
                     </div>
                     <div className="detail card" style={{ padding: "75px", boxShadow: "5px 5px 15px black" }}>

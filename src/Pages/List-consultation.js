@@ -62,7 +62,11 @@ function ListConsultation() {
                                             <div className="img d-flex align-items-center" style={{ marginLeft: "120px" }}>
                                                 <img src="./Assets/Image/doctor.png" alt="user" style={{ width: "75px", height: "75px", marginLeft: "20px", borderRadius: "50%" }} />
                                             </div>
-                                            <p className="fs-6 m-0">{item?.replay}. <a href={item?.link} target="_blank">Here</a></p>
+                                            {item?.replay === "Cancel" ? (
+                                                <p>.</p>
+                                            ) : (
+                                                <p className="fs-6 m-0">{item?.replay}. <a href={item?.link} target="_blank">Here</a></p>
+                                            )}
                                         </div>
                                     ) : (
                                         <div className='fs-4 fw-bold text-center text-warning' style={{}}>Waiting For Replay</div>

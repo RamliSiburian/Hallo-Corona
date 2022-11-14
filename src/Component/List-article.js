@@ -15,7 +15,7 @@ function ListArticle() {
     return (
         <div className='List-article pb-5 '>
             <div className="container">
-                <p className="fs-1 fw-bold text-center p-5">Artikel Hari Kemarin</p>
+                <p className="fs-1 fw-bold text-center p-5">Artikel Hari Ini</p>
                 <div className="article d-md-flex gap-5 flex-wrap">
                     {articles?.map((item, index) => {
                         return (
