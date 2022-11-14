@@ -74,7 +74,8 @@ func (h *handlerconsult) CreateConsult(w http.ResponseWriter, r *http.Request) {
 		Weight:           request.Weight,
 		Gender:           request.Gender,
 		Subject:          request.Subject,
-		LiveConsultation: request.LiveConsultation,		Description:      request.Description,
+		LiveConsultation: request.LiveConsultation,
+		Description:      request.Description,
 		UserID:           userId,
 		CreateAt:         time.Now(),
 	}
