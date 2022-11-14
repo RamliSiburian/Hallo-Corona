@@ -86,7 +86,7 @@ function AddArticle() {
             <Container className='mb-5'>
                 <div className="Add-article">
                     <div className="mt-5 d-md-flex align-items-center">
-                        <p className="fs-5 fw-bold me-3"><Link to={`/ListArticle`} className="text-danger"><Icon.FaArrowLeft /> Back |</Link> </p>
+                        <p className="fs-5 fw-bold me-3"><Link to={`/Articles`} className="text-danger"><Icon.FaArrowLeft /> Back |</Link> </p>
                         <p className="fs-3 fw-bold"> Add Article</p>
                     </div>
                     <hr />
