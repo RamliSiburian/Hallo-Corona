@@ -64,7 +64,7 @@ function AddArticle() {
                 const timer = setTimeout(navigates, 2000);
 
                 function navigates() {
-                    navigate("/ListArticle");
+                    navigate("/Articles");
                 }
 
 
