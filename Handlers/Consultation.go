@@ -2,6 +2,7 @@ package Handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	consultDto "halloCorona/Dto/Consultation"
 	Dto "halloCorona/Dto/Result"
 	"halloCorona/Models"
@@ -62,6 +63,8 @@ func (h *handlerconsult) CreateConsult(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println("ini data yang kamu cari", request.Fullname, request.Phone, request.BornDate, request.Age, request.Height, request.Weight, request.Gender, request.Subject, request.LiveConsultation, request.Description, userId)
+
 	consult := Models.Consultation{
 		Fullname:         request.Fullname,
 		Phone:            request.Phone,
@@ -71,8 +74,7 @@ func (h *handlerconsult) CreateConsult(w http.ResponseWriter, r *http.Request) {
 		Weight:           request.Weight,
 		Gender:           request.Gender,
 		Subject:          request.Subject,
-		LiveConsultation: request.LiveConsultation,
-		Description:      request.Description,
+		LiveConsultation: request.LiveConsultation,		Description:      request.Description,
 		UserID:           userId,
 		CreateAt:         time.Now(),
 	}
@@ -82,6 +84,7 @@ func (h *handlerconsult) CreateConsult(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		response := Dto.ErrorResult{Code: http.StatusInternalServerError, Message: err.Error()}
 		json.NewEncoder(w).Encode(response)
+		return
 	}
 
 	w.WriteHeader(http.StatusOK)

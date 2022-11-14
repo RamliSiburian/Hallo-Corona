@@ -18,5 +18,5 @@ func ConsultRoutes(r *mux.Router) {
 	r.HandleFunc("/ConsultByUser/{user_id}", h.GetConsultByUser).Methods("GET")
 	r.HandleFunc("/Consult", middleware.Auth(h.CreateConsult)).Methods("POST")
 	r.HandleFunc("/Consult/{id}", h.UpdateConsult).Methods("PATCH")
-
+ 
 }

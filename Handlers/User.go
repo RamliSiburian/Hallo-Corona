@@ -1,9 +1,7 @@
 package Handlers
 
 import (
-	"context"
 	"encoding/json"
-	"fmt"
 	Dto "halloCorona/Dto/Result"
 	userDto "halloCorona/Dto/User"
 	"halloCorona/Models"
@@ -12,8 +10,6 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/cloudinary/cloudinary-go/v2"
-	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
 	"github.com/gorilla/mux"
 )
 
@@ -54,8 +50,8 @@ func (h *handleruser) GetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// user.Image = os.Getenv("PATH_FILE_USER") + user.Image
-	user.Image = os.Getenv("PATH_FILE") + user.Image
+	user.Image = os.Getenv("PATH_FILE_USER") + user.Image
+	// user.Image = os.Getenv("PATH_FILE") + user.Image
 
 	w.WriteHeader(http.StatusOK)
 	response := Dto.SuccessResult{Code: http.StatusOK, Data: user}
@@ -87,17 +83,17 @@ func (h *handleruser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 		return
 	}
-	var ctx = context.Background()
-	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
-	var API_KEY = os.Getenv("API_KEY")
-	var API_SECRET = os.Getenv("API_SECRET")
+	// var ctx = context.Background()
+	// var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	// var API_KEY = os.Getenv("API_KEY")
+	// var API_SECRET = os.Getenv("API_SECRET")
 
-	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
-	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "halloCorona/userImage"})
+	// cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+	// resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "halloCorona/userImage"})
 
-	if err != nil {
-		fmt.Println(err.Error())
-	}
+	// if err != nil {
+	// 	fmt.Println(err.Error())
+	// }
 
 	if request.Fullname != "" {
 		user.Fullname = request.Fullname
@@ -112,7 +108,7 @@ func (h *handleruser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		user.Gender = request.Gender
 	}
 	if filepath != "" {
-		user.Image = resp.SecureURL
+		user.Image = filepath
 	}
 	if request.Address != "" {
 		user.Address = request.Address
