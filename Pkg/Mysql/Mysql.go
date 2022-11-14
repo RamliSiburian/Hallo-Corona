@@ -16,7 +16,7 @@ func DatabaseInit() {
 	// DBName := "root:@tcp(127.0.0.1:3306)/hallo_corona?charset=utf8mb4&parseTime=True&loc=Local"
 	// DB, err = gorm.Open(mysql.Open(DBName), &gorm.Config{})
 
-	// postgre
+	//postgre
 	var DB_HOST = os.Getenv("DB_HOST")
 	var DB_USER = os.Getenv("DB_USER")
 	var DB_PASSWORD = os.Getenv("DB_PASSWORD")
