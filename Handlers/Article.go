@@ -134,6 +134,7 @@ func (h *handlerarticle) CreateArticle(w http.ResponseWriter, r *http.Request) {
 		Title:  request.Title,
 		Image:  resp.SecureURL,
 		Desc:   request.Desc,
+		Hastag: request.Hastag,
 		UserId: userId,
 	}
 
