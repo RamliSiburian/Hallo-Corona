@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Alert, Form, Modal } from 'react-bootstrap';
+import { Alert, Button, Form, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import GlobalButton from '../Atoms/Global-button';
 import GlobalForm from '../Atoms/Global-form';
@@ -63,7 +63,7 @@ function Login({ show, setShow, setShowRegister }) {
         <>
             <Modal show={show} onHide={handleClose} size="sm" centered>
                 <Modal.Header closeButton>
-                    <Modal.Title className='modal-title fs-1 fw-bold'>Login</Modal.Title>
+                    <Modal.Title className='modal-title fs-1 fw-bold' style={{ color: "#ff6185" }}>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {message && message}
@@ -90,11 +90,7 @@ function Login({ show, setShow, setShowRegister }) {
                                 required='required'
                             />
                         </Form.Group>
-                        <GlobalButton
-                            name='Login'
-                            type='submit'
-                            className='btn link w-100 text-white border-0 mt-2'
-                        />
+                        <Button type='submit' className='btn text-white fw-bold link w-100 border-0' style={{ background: "#ff6185" }}>Login</Button>
                     </Form>
                 </Modal.Body>
                 <p className='text-center'>

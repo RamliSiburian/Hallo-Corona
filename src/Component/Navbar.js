@@ -84,8 +84,8 @@ function Navbars() {
                                 </Dropdown>
                             )}
                         </Nav>) : (<Nav className="me-end gap-3">
-                            <Button className='first' variant="outline-danger" onClick={() => setShowRegister(true)}>Sign Up</Button>
-                            <Button className='last' variant="danger" onClick={() => setShowLogin(true)}>Sign In</Button>
+                            <Button className='first' onClick={() => setShowRegister(true)}>Sign Up</Button>
+                            <Button className='last' onClick={() => setShowLogin(true)}>Sign In</Button>
                         </Nav>
                         )
                         }

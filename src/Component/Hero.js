@@ -8,7 +8,7 @@ function Hero() {
     const [state, dispatch] = useContext(UserContext);
 
     return (
-        <div className='Hero' style={{ backgroundColor: "#FF6185" }}>
+        <div className='Hero d-flex align-items-center' style={{ backgroundColor: "#FF6185", minHeight: "300px" }}>
             <div className="container d-md-flex pt-5 pb-5">
                 <div className="left" style={{ flex: 2 }}>
                     <div className="titles d-md-flex">

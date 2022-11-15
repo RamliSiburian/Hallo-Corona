@@ -56,14 +56,21 @@ function ReservasiData() {
                                             ) : (
                                                 item?.status === "Cancel" ? (
                                                     <div className='text-danger'>{item?.status}</div>
+                                                ) : (item?.status === "Done" ? (
+                                                    <span className='text-center'><Icon.FaCheckCircle style={{ color: "green", fontSize: "30px" }} /></span>
                                                 ) : (
                                                     <div className='text-success'>{item?.status}</div>
+                                                )
                                                 )
                                             )
                                             }
                                         </td>
                                         <td className="align-middle text-center">
-                                            <Link to={`/DetailInvo/${item?.id}`}><Icon.FaSearch /></Link>
+                                            {item?.status === "Done" ? (
+                                                <span></span>
+                                            ) : (
+                                                <Link to={`/DetailInvo/${item?.id}`}><Icon.FaSearch /></Link>
+                                            )}
                                         </td>
                                     </tr>
                                 )

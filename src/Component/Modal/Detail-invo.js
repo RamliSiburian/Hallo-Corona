@@ -92,8 +92,14 @@ export default function DetailInfoDoctor() {
                         <p style={{ fontSize: "14px" }}>{detailInvo?.description}</p>
                     </div>
                     <div className="right fw-bold d-flex flex-column justify-content-between p-3" style={{ flex: "2" }}>
-                        <p className="fs-6">Date of complaint <span style={{ fontSize: "11px", display: "block" }}>{milisToDate(detailInvo?.create_at)}</span></p>
-                        <p className="fs-6">Live consultation <span style={{ fontSize: "11px", display: "block" }}>{detailInvo?.live_consultation}</span></p>
+                        <div className="complainDate d-flex align-items-center gap-2">
+                            <Icon.FaCircleNotch style={{ color: "#ff6185" }} />
+                            <p className="fs-6 m-0">Date of complaint <span style={{ fontSize: "11px", display: "block" }}>{milisToDate(detailInvo?.create_at)}</span></p>
+                        </div>
+                        <div className="liveconsult d-flex align-items-center gap-2">
+                            <Icon.FaCircle style={{ color: "#ff6185" }} />
+                            <p className="fs-6 m-0">Live consultation <span style={{ fontSize: "11px", display: "block" }}>{detailInvo?.live_consultation}</span></p>
+                        </div>
                     </div>
                 </div>
                 <div className="data">
@@ -150,7 +156,7 @@ export default function DetailInfoDoctor() {
                             <Button size="sm" type='submit' className="btn-success" style={{ width: '135px' }}>Approve</Button>
                         </div>
                     </Form>
-                </div>
+                </div> 
 
 
             </div>

@@ -15,11 +15,12 @@ function ListArticle() {
     return (
         <div className='List-article pb-5 '>
             <div className="container">
-                <p className="fs-1 fw-bold text-center p-5">Artikel Hari Ini</p>
+                <p className="fs-1 fw-bold text-center p-5 pb-0">Artikel Hari Ini</p>
+                <hr />
                 <div className="article d-md-flex gap-5 flex-wrap">
                     {articles?.map((item, index) => {
                         return (
-                            <Card style={{ width: '15rem', minHeight: "250px" }} className="card-article" key={index}>
+                            <Card style={{ width: '17rem', minHeight: "250px" }} className="card-article" key={index}>
                                 {item?.image === "http://localhost:5000/Uploads/article/" ? (
                                     <Card.Img variant="top" src="./Assets/Image/noimage.png" alt="Gambar" style={{ height: "170px" }} />
                                 ) : (

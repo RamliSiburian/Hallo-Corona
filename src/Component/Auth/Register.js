@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Form, Modal } from 'react-bootstrap';
+import { Alert, Button, Form, Modal } from 'react-bootstrap';
 import GlobalButton from '../Atoms/Global-button';
 // import { useNavigate } from 'react-router-dom';
 import { API } from '../../Config/Api';
@@ -68,7 +68,7 @@ function Register({ show, setShow, setShowLogin }) {
         <>
             <Modal show={show} onHide={handleClose} size="sm" centered>
                 <Modal.Header closeButton>
-                    <Modal.Title className='fs-1 fw-bold'>Register</Modal.Title>
+                    <Modal.Title className='fs-1 fw-bold' style={{ color: "#ff6185" }}>Register</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {message && message}
@@ -111,11 +111,7 @@ function Register({ show, setShow, setShowLogin }) {
                                 <option value="Patient">As Patient</option>
                             </Form.Select>
                         </Form.Group>
-                        <GlobalButton
-                            name='Register'
-                            type='submit'
-                            className='btn link w-100 text-white border-0'
-                        />
+                        <Button type='submit' className='btn text-white fw-bold link w-100 border-0' style={{ background: "#ff6185" }}>Register</Button>
                     </Form>
                 </Modal.Body>
                 <p className='text-center'>

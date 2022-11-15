@@ -12,7 +12,7 @@ function Consultation() {
 
     const [form, setForm] = useState({
         fullname: "",
-        phone: "",
+        phone: 0,
         born_date: "",
         age: 0,
         height: 0,
@@ -35,7 +35,7 @@ function Consultation() {
             e.preventDefault();
             let Datas = {
                 fullname: form?.fullname,
-                phone: form?.phone,
+                phone: parseInt(form?.phone),
                 born_date: form?.born_date,
                 age: parseInt(form?.age),
                 height: parseInt(form?.height),
@@ -53,8 +53,8 @@ function Consultation() {
             })
             if (response.data.code === 200) {
                 const alert = (
-                    <Alert variant="success" className="py-1 fw-bold">
-                        Product has been added
+                    <Alert variant="success" className="py-2 fw-bold">
+                        Consultation has been sended
                     </Alert>
                 )
                 setMessage(alert);
@@ -71,10 +71,10 @@ function Consultation() {
                     description: "",
                 })
 
-                const timer = setTimeout(navigates, 1000);
+                const timer = setTimeout(navigates, 2000);
 
                 function navigates() {
-                    navigate("/Patient");
+                    navigate("/ListConsultation");
                 }
 
 
@@ -114,7 +114,7 @@ function Consultation() {
                             </Form.Group>
                             <Form.Group className="mb-3 border-2" controlId="formBasicPrice">
                                 <GlobalForm
-                                    type='text'
+                                    type='number'
                                     name='phone'
                                     value={form.phone}
                                     onChange={handleOnChange}
@@ -199,7 +199,7 @@ function Consultation() {
                                 />
                             </Form.Group>
                             <Form.Group className='mt-5 mb-5 d-flex justify-content-md-end justify-content-center'>
-                                <Button type='submit' style={{ backgroundColor: "#433434", width: "200px" }} className="border-0">
+                                <Button type='submit' style={{ backgroundColor: "#ff6185", width: "200px" }} className="border-0">
                                     Save
                                 </Button>
                             </Form.Group>

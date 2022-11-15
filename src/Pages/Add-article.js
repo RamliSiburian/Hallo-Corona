@@ -82,86 +82,84 @@ function AddArticle() {
     })
 
     return (
-        <>
-            <Container className='mb-5'>
-                <div className="Add-article">
-                    <div className="mt-5 d-md-flex align-items-center">
-                        <p className="fs-5 fw-bold me-3"><Link to={`/Articles`} className="text-danger"><Icon.FaArrowLeft /> Back |</Link> </p>
-                        <p className="fs-3 fw-bold"> Add Article</p>
-                    </div>
-                    <hr />
-                    {message && message}
-                    <div className="article d-flex justify-content-center">
-                        <Form onSubmit={(e) => handleOnSubmit.mutate(e)} className="w-50">
-                            <Form.Group className='mb-3' >
-                                <GlobalForm
-                                    type='text'
-                                    name='title'
-                                    placeholder='Title'
-                                    value={form.title}
-                                    onChange={handleOnChange}
-                                    required='required'
-                                    autofocus='autofocus'
-                                    autocomplete='off'
-                                />
-                            </Form.Group>
-                            <Form.Group className='w-100 mb-3' controlId="formBasicimage">
-                                <Form.Label className="btn text-white" style={{
-                                    backgroundColor: "#FF6185"
-                                }}>
-                                    Upload image &nbsp; <Icon.FaImage />
-                                </Form.Label>
-                                <GlobalForm
-                                    type="file"
-                                    name="image"
-                                    onChange={handleOnChange}
-                                    hidden
-                                />
-                            </Form.Group>
-                            {preview && (
-                                <div>
-                                    <img className='rounded'
-                                        src={preview}
-                                        style={{
-                                            maxWidth: "150px",
-                                            maxHeight: "150px",
-                                            objectFit: "cover",
-                                        }}
-                                        alt={preview}
-                                    />
-                                </div>
-                            )}
-                            <Form.Group className='mb-3 mt-3' >
-                                <Form.Control as="textarea" rows={3} style={{ resize: "none" }}
-                                    name='desc'
-                                    value={form.desc}
-                                    onChange={handleOnChange}
-                                    placeholder='Description'
-                                />
-                            </Form.Group>
-                            <Form.Group className='mb-3' >
-                                <GlobalForm
-                                    type='text'
-                                    name='hastag'
-                                    value={form.hastag}
-                                    onChange={handleOnChange}
-                                    placeholder='Hastag'
-                                    required='required'
-                                    autocomplete='off'
-                                />
-                            </Form.Group>
-                            <Form.Group className='d-md-flex justify-content-end mt-4'>
-                                <GlobalButton
-                                    name='Post'
-                                    type='submit'
-                                    className='w-25 bg-danger border-0'
-                                />
-                            </Form.Group>
-                        </Form>
-                    </div>
+        <Container className='mb-5' style={{ height: "100vh" }}>
+            <div className="Add-article">
+                <div className="mt-5 d-md-flex align-items-center">
+                    <p className="fs-5 fw-bold me-3"><Link to={`/Articles`} className="text-danger"><Icon.FaArrowLeft /> Back |</Link> </p>
+                    <p className="fs-3 fw-bold"> Add Article</p>
                 </div>
-            </Container>
-        </>
+                <hr />
+                {message && message}
+                <div className="article d-flex justify-content-center">
+                    <Form onSubmit={(e) => handleOnSubmit.mutate(e)} className="w-50">
+                        <Form.Group className='mb-3' >
+                            <GlobalForm
+                                type='text'
+                                name='title'
+                                placeholder='Title'
+                                value={form.title}
+                                onChange={handleOnChange}
+                                required='required'
+                                autofocus='autofocus'
+                                autocomplete='off'
+                            />
+                        </Form.Group>
+                        <Form.Group className='w-100 mb-3' controlId="formBasicimage">
+                            <Form.Label className="btn text-white" style={{
+                                backgroundColor: "#FF6185"
+                            }}>
+                                Upload image &nbsp; <Icon.FaImage />
+                            </Form.Label>
+                            <GlobalForm
+                                type="file"
+                                name="image"
+                                onChange={handleOnChange}
+                                hidden
+                            />
+                        </Form.Group>
+                        {preview && (
+                            <div>
+                                <img className='rounded'
+                                    src={preview}
+                                    style={{
+                                        maxWidth: "150px",
+                                        maxHeight: "150px",
+                                        objectFit: "cover",
+                                    }}
+                                    alt={preview}
+                                />
+                            </div>
+                        )}
+                        <Form.Group className='mb-3 mt-3' >
+                            <Form.Control as="textarea" rows={3} style={{ resize: "none" }}
+                                name='desc'
+                                value={form.desc}
+                                onChange={handleOnChange}
+                                placeholder='Description'
+                            />
+                        </Form.Group>
+                        <Form.Group className='mb-3' >
+                            <GlobalForm
+                                type='text'
+                                name='hastag'
+                                value={form.hastag}
+                                onChange={handleOnChange}
+                                placeholder='Hastag'
+                                required='required'
+                                autocomplete='off'
+                            />
+                        </Form.Group>
+                        <Form.Group className='d-md-flex justify-content-end mt-4'>
+                            <GlobalButton
+                                name='Post'
+                                type='submit'
+                                className='w-25 bg-danger border-0'
+                            />
+                        </Form.Group>
+                    </Form>
+                </div>
+            </div>
+        </Container>
     )
 }
 

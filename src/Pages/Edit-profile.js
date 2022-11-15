@@ -157,19 +157,22 @@ function EditProfile() {
                         <Form.Label>
                             Gender
                         </Form.Label>
-                        <GlobalForm
-                            type='text'
+                        <Form.Select aria-label="Floating label select example"
                             name='gender'
                             defaultValue={form?.gender}
                             onChange={handleOnChange}
-                        />
+                        >
+                            <option hidden>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-3 border-2" controlId="formBasicPhone">
                         <Form.Label>
                             Phone Number
                         </Form.Label>
                         <GlobalForm
-                            type='text'
+                            type='number'
                             name='phone'
                             defaultValue={form?.phone}
                             onChange={handleOnChange}

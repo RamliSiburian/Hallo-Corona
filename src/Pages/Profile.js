@@ -78,7 +78,7 @@ function Profile() {
                                 ) : (
                                     <img src={profile?.image} alt="Not found" className='rounded profileImage' />
                                 )}
-                                <Link to="/EditProfile" className='link btn btn-primary'>Edit Profile</Link>
+                                <Link to="/EditProfile" className='link btn text-white fw-bold' style={{ background: "#ff6185" }}>Edit Profile</Link>
                             </div>
                         </div>
                     </div>
