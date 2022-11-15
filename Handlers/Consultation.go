@@ -2,7 +2,6 @@ package Handlers
 
 import (
 	"encoding/json"
-	"fmt"
 	consultDto "halloCorona/Dto/Consultation"
 	Dto "halloCorona/Dto/Result"
 	"halloCorona/Models"
@@ -62,8 +61,6 @@ func (h *handlerconsult) CreateConsult(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 		return
 	}
-
-	fmt.Println("ini data yang kamu cari", request.Fullname, request.Phone, request.BornDate, request.Age, request.Height, request.Weight, request.Gender, request.Subject, request.LiveConsultation, request.Description, userId)
 
 	consult := Models.Consultation{
 		Fullname:         request.Fullname,
