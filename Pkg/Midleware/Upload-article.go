@@ -32,7 +32,7 @@ func ArticleImage(next http.HandlerFunc) http.HandlerFunc {
 			return
 		}
 
-		tempFile, err := ioutil.TempFile("Uploads/article", "image-*.png")
+		tempFile, err := ioutil.TempFile("Uploads", "image-*.png")
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println("path upload error")
@@ -48,9 +48,9 @@ func ArticleImage(next http.HandlerFunc) http.HandlerFunc {
 
 		tempFile.Write(fileBytes)
 		data := tempFile.Name()
-		filename := data[16:]
+		// filename := data[16:]
 
-		ctx := context.WithValue(r.Context(), "dataFile", filename)
+		ctx := context.WithValue(r.Context(), "dataFile", data)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
