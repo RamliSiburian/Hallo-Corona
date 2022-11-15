@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"halloCorona/Databases"
 	"halloCorona/Pkg/Mysql"
 	"halloCorona/Routes"
-	"log"
 	"net/http"
 	"os"
 
@@ -18,7 +16,6 @@ func main() {
 	err := godotenv.Load()
 
 	if err != nil {
-		log.Fatal("error loading env file")
 	}
 
 	Mysql.DatabaseInit()
@@ -35,7 +32,6 @@ func main() {
 	var AllowedMethods = handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "PATCH", "DELETE"})
 	var AllowedOrigins = handlers.AllowedOrigins([]string{"*"})
 
-	fmt.Println("server running localhost:" + port)
 	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 
 }

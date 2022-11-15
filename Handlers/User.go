@@ -87,6 +87,7 @@ func (h *handleruser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 		return
 	}
+
 	var ctx = context.Background()
 	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
 	var API_KEY = os.Getenv("API_KEY")

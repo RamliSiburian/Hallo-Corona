@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/cloudinary/cloudinary-go/v2"
 	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
@@ -62,8 +63,8 @@ func (h *handlerarticle) GetArticleById(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
+	// article.Image = os.Getenv("PATH_FILE_ARTICLE") + article.Image
 	article.Image = os.Getenv("PATH_FILE") + article.Image
-	// article[i].Image = os.Getenv("PATH_FILE") + p.Image
 
 	w.WriteHeader(http.StatusOK)
 	response := Dto.SuccessResult{Code: http.StatusOK, Data: article}
@@ -131,11 +132,12 @@ func (h *handlerarticle) CreateArticle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	article := Models.Article{
-		Title:  request.Title,
-		Image:  resp.SecureURL,
-		Desc:   request.Desc,
-		Hastag: request.Hastag,
-		UserId: userId,
+		Title:    request.Title,
+		Image:    resp.SecureURL,
+		Desc:     request.Desc,
+		Hastag:   request.Hastag,
+		CreateAt: time.Now(),
+		UserId:   userId,
 	}
 
 	article, err = h.ArticleRepository.CreateArticle(article)

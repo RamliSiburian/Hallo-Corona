@@ -26,7 +26,8 @@ func (r *users) FindConsult() ([]Models.Consultation, error) {
 }
 
 func (r *users) CreateConsult(consult Models.Consultation) (Models.Consultation, error) {
-	err := r.db.Preload("User").Create(&consult).Error
+
+	err := r.db.Create(&consult).Error
 
 	return consult, err
 }

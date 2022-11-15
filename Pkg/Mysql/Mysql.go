@@ -30,5 +30,4 @@ func DatabaseInit() {
 		panic(err)
 	}
 
-	fmt.Println("Database connected")
 }

@@ -2,7 +2,7 @@ package consultDto
 
 type ConsultResponse struct {
 	Fullname         string `json:"fullname" `
-	Phone            string `json:"phone" `
+	Phone            int    `json:"phone" `
 	BornDate         string `json:"born_date" `
 	Age              int    `json:"age" `
 	Height           int    `json:"height" `
