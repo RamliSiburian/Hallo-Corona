@@ -1,7 +1,9 @@
 package Handlers
 
 import (
+	"context"
 	"encoding/json"
+	"fmt"
 	articleDto "halloCorona/Dto/Article"
 	Dto "halloCorona/Dto/Result"
 	"halloCorona/Models"
@@ -10,6 +12,8 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/cloudinary/cloudinary-go/v2"
+	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
 	"github.com/go-playground/validator/v10"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/gorilla/mux"
@@ -35,8 +39,8 @@ func (h *handlerarticle) FindArticle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	for i, p := range articles {
-		articles[i].Image = os.Getenv("PATH_FILE_ARTICLE") + p.Image
-		// articles[i].Image = os.Getenv("PATH_FILE") + p.Image
+		// articles[i].Image = os.Getenv("PATH_FILE_ARTICLE") + p.Image
+		articles[i].Image = os.Getenv("PATH_FILE") + p.Image
 	}
 
 	w.WriteHeader(http.StatusOK)
@@ -58,7 +62,7 @@ func (h *handlerarticle) GetArticleById(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	article.Image = os.Getenv("PATH_FILE_ARTICLE") + article.Image
+	article.Image = os.Getenv("PATH_FILE") + article.Image
 	// article[i].Image = os.Getenv("PATH_FILE") + p.Image
 
 	w.WriteHeader(http.StatusOK)
@@ -81,8 +85,8 @@ func (h *handlerarticle) GetArticleByUser(w http.ResponseWriter, r *http.Request
 	}
 
 	for i, p := range article {
-		article[i].Image = os.Getenv("PATH_FILE_ARTICLE") + p.Image
-		// article[i].Image = os.Getenv("PATH_FILE") + p.Image
+		// article[i].Image = os.Getenv("PATH_FILE_ARTICLE") + p.Image
+		article[i].Image = os.Getenv("PATH_FILE") + p.Image
 	}
 
 	w.WriteHeader(http.StatusOK)
@@ -115,20 +119,20 @@ func (h *handlerarticle) CreateArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// var ctx = context.Background()
-	// var CLOUD_NAME = os.Getenv("CLOUD_NAME")
-	// var API_KEY = os.Getenv("API_KEY")
-	// var API_SECRET = os.Getenv("API_SECRET")
-	// cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
-	// resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "halloCorona/articleImage"})
+	var ctx = context.Background()
+	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	var API_KEY = os.Getenv("API_KEY")
+	var API_SECRET = os.Getenv("API_SECRET")
+	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "halloCorona/articleImage"})
 
-	// if err != nil {
-	// 	fmt.Println(err.Error())
-	// }
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 
 	article := Models.Article{
 		Title:  request.Title,
-		Image:  filepath,
+		Image:  resp.SecureURL,
 		Desc:   request.Desc,
 		Hastag: request.Hastag,
 		UserId: userId,
