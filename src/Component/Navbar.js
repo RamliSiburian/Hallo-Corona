@@ -32,7 +32,7 @@ function Navbars() {
         if (state.user) {
             getProfile();
         }
-    }, [state])
+    }, [state, profile])
 
     function Logout() {
         dispatch({
